@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    {% for obj in courses %}
+        <div class="mediabody">
+                <div class="col-lg-6">
+                    <p>{{obj.category}},made on {{obj.date_created|timesince}}</p>
+                    <h6>{{ obj.title}}</h6>
+                    <hr>
+                    <a href="{{ obj.tutorial.url }}"><img width="250" height="100" src="{{ obj.thumbs_for_video.url }}"></a>
+                    <hr>
+                    <p>{{obj.description}}</p>
+                    <a class="btn btn-outline-info sm-1" style="width:auto;border-radius:15px;" href="{% url 'detail' obj.slug %}">Read more..</a>       
+                </div>
+            </div>   
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+
+<!-- <video width="360" height="200" controls>
+                        <source src="{{ obj.tutorial.url }}" type="video/mp4">
+                    </video> -->
