@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'accounts',
     'courses',
     'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'EduPlatform.urls'
 
@@ -151,3 +154,13 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'aahmadov271101@gmail.com'
 EMAIL_HOST_PASSWORD = 'dell@inspire1188.'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
